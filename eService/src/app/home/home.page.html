@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-card class="welcome-card" *ngIf="login">
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input  type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+      <ion-button size="medium" expand="block" color="medium" (click)="signinWithEmailAndPassword()">Login with Email</ion-button>
+      <ion-button size="small" expand="block" color="secondary" (click)="signIn()">Signup</ion-button>
+    </ion-card>
+
+    <ion-card class="welcome-card" *ngIf="!login">
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input  type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+
+      <ion-button size="medium" expand="block" color="medium" (click)="signupWithEmailAndPassword()">Signup with Email</ion-button>
+      <ion-button size="small" expand="block" color="secondary" (click)="signIn()">Login</ion-button>
+
+      <ion-card-content>
+        <ion-row justify-content-center>
+            <ion-list lines="none"> 
+              <ion-item (click)="loginWithFacebook()">
+                <ion-button size="medium" expand="block" color="primary">Login with Facebook</ion-button>
+              </ion-item>
+              <ion-item (click)="loginWithGoogle()">
+                <ion-button size="medium" expand="block" color="secondary">Login with Google</ion-button>
+              </ion-item>
+            </ion-list>
+          </ion-row>
+      </ion-card-content>
+      
+    </ion-card>
+
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="user"> 
+   <h2>Hello {{user.name}}</h2>
+   <p>{{user.email}}</p>
+   <p>{{user.uid}}</p>
+  </div>
+
+  <ion-list>
+     <ion-item *ngFor="let job of jobs | async">
+       <ion-label>{{ job.title }}</ion-label>
+       <ion-label>{{ job.description }}</ion-label>
+       <ion-button fill="outline" size="small" color="warning" (click)="updateJob(job.id)">
+         <ion-label>Update Job</ion-label>
+       </ion-button>
+     </ion-item>
+  </ion-list>
+
+  <ion-button (click)="addJob()">
+    <ion-icon name="camera"></ion-icon>
+    <ion-label>Add Job</ion-label>
+  </ion-button>
+</ion-content>
