@@ -1,0 +1,110 @@
+<ion-header no-shadow no-border>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title> 
+  </ion-navbar>
+</ion-header>
+  
+<ion-content>
+  <ion-card class="top" *ngIf="profile"> 
+    <ion-grid>
+      <ion-row class="user-details"> 
+        <ion-col col-4>
+          <img src="{{ profilePicture(profile) }}" alt="profile" [src]="profilePicture(profile)" class="animated zoomIn"
+            (error)="img.src = defaultImg" #img (click)="presentActionSheet()">
+        </ion-col>
+        <ion-col col-8 class="name-title">
+          <h2 class="animated slideInLeft">{{profile.firstname}} {{profile.lastname}} </h2>
+          <!-- <p class="animated slideInRight">{{profile.title || profile.type}}</p> -->
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="rating-contacts">
+        <ion-col col-5 class="ratings animated slideInLeft">
+          <ion-badge primary>{{ 0}}</ion-badge> 
+          <rating [float]="true" [(ngModel)]="userRating" [readonly]="true" ></rating>
+        </ion-col>
+        <ion-col col-7 class="contacts">
+          <div class="item-top animated slideInRight" *ngIf="profile.email">
+            <i class="fa fa-envelope" item-start></i>
+            <span item-start >{{profile.email}} </span>
+          </div>
+          <div class="item-bottom animated slideInRight" *ngIf="profile.phone">
+            <i class="fa fa-phone" item-start></i>
+            <span item-start >{{profile.phone}}</span>
+          </div>
+        </ion-col> 
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <!-- <ion-grid class="user-stats">
+    <ion-row>
+      <ion-col col-6>
+        <ion-item *ngIf="isRecruiter(profile)">
+          <i class="fa fa-folder" item-start></i>
+          <h2 class="count">{{ postedJobs.length }}</h2>
+          <p>Posted Jobs</p>
+        </ion-item>
+        <ion-item *ngIf="!isRecruiter(profile)">
+          <i class="fa fa-folder" item-start></i>
+          <h2 class="count">{{ viewedJobs.length }}</h2>
+          <p>Viewed Jobs</p>
+        </ion-item>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item>
+          <i class="fa fa-calendar" item-start></i>
+          <h2 class="count">{{ appointments.length }}</h2>
+          <p>Appointments</p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <div class="group-item-info" *ngIf="profile">
+    <ion-item-divider color="light">
+      <i class="animated slideInRight fa fa-user icon" item-end></i>
+      Personal Details
+    </ion-item-divider>
+    <ion-list>
+      <ion-item class="item-info" [hidden]="!profile.gender">
+        <i class="fa fa-transgender" item-start></i>
+        <span class="info">Gender</span>
+        <span item-end>{{profile.gender}} </span>
+      </ion-item>
+      <ion-item class="item-info" [hidden]="!profile.dob">
+        <i class="fa fa-calendar" item-start></i>
+        <span class="info">Date of birth</span>
+        <span item-end>{{profile.dob}} </span>
+      </ion-item>
+      <ion-item class="item-info" [hidden]="!profile.race">
+        <i class="fa fa-users" item-start></i>
+        <span class="info">Race</span>
+        <span item-end>{{profile.race}} </span>
+      </ion-item>
+      <!-- <ion-item class="item-info" [hidden]="!profile.nationality">
+        <i class="fa fa-flag" item-start></i>
+        <span class="info">Nationality</span>
+        <span item-end>{{profile.nationality}}</span>
+      </ion-item> -->
+    </ion-list>
+  </div>
+
+  <!-- <div class="group-item-info" *ngIf="profile && profile.skills">
+    <ion-item-divider color="light">
+      <i class="animated slideInRight fa fa-award icon" item-end></i>
+      Experties
+    </ion-item-divider>
+
+    <ion-item class="skills" *ngFor="let skill of profile.skills">
+      <img src="assets/imgs/category/{{skill.category}}.svg" item-start>
+      <h2>{{skill.name}}</h2>
+      <p>{{skill.category}}</p>
+      <ion-badge item-end>{{skill.experience}}</ion-badge>
+    </ion-item> 
+  </div>  -->
+</ion-content> 
+  

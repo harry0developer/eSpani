@@ -1,0 +1,56 @@
+page-setup {
+
+    .scroll-content {
+        background-color: $primary;
+        color: $white;
+    }
+
+    .home-icon i.fa {
+        font-size: 4em;
+    }
+
+    .paging {
+        margin: 20px 0;
+    }
+
+    ion-item {
+        margin: 10px 0 !important;
+    }
+    ion-label{
+        color: $primary !important;
+        min-width: 50% !important;
+    }
+
+    ion-select, ion-textarea {
+        font-weight: bold;
+        max-width: 100%;
+    }
+    .text-input {
+        font-weight: normal;
+    }
+
+    ion-select, ion-datetime  {
+        width: 100%;
+        text-align: left;
+        color: $dark;
+        font-weight: normal;
+    }
+    .item-datetime {
+        border-radius: 4px !important;
+        margin: 10px 0;
+    }
+
+    .validation {
+        p {
+            color: $white;
+            font-size: .9em;
+        }
+    }
+
+    ion-footer{
+        background-color: $primary;
+        .button {
+            color: white;
+        }
+    }
+}

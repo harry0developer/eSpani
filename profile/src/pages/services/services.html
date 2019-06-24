@@ -1,0 +1,76 @@
+<ion-header >
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Services</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="filterJobs()">
+        <ion-icon name="funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar> 
+
+  <ion-toolbar>
+    <ion-grid  class="filter">
+      <ion-row>
+        <ion-col col-6>
+          <div><ion-badge>{{filter?.category || 'All'}}</ion-badge></div>
+        </ion-col>
+        <ion-col col-6>
+          <div><ion-badge>{{filter?.distance || getMaxDistance()}} km</ion-badge></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Refresh jobs"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="services">
+    <div [@listAnimation]="services.length"> 
+      <ion-list *ngFor="let service of services">
+        <ion-card>
+          <ion-item *ngIf="service" class="service" (click)="viewServiceDetails(service)">
+            <ion-thumbnail item-start>
+              <img src="assets/imgs/categories/{{getServiceIcon(service)}}.svg">
+            </ion-thumbnail>
+            <h2>{{service.title}}</h2>
+            <p>{{service.category}}</p>
+            <i class="fa fa-chevron-right light" item-end></i>
+          </ion-item>
+          <ion-item-divider color="light">
+            <div class="row">
+              <div class="col col-6 info-bar" [hidden]="!service.dateCreated">
+                <div item-start>
+                  <i class="fa fa-calendar" item-start></i>
+                  <span>{{getDateFromNow(service.dateCreated)}}</span>
+                </div>
+              </div>
+              <div [hidden]="!service.distance" class="col col-6 info-bar ">
+                <div class="distance" item-end>
+                  <i class="fa fa-map-marker" item-start></i>
+                  <span>{{service?.distance || 18}} km away</span>
+                </div>
+              </div>
+            </div>
+          </ion-item-divider>
+        </ion-card>
+      </ion-list>
+    </div>
+  </div>
+  <div *ngIf="!services || services.length < 1">
+    <ion-card padding text-wrap class="not-found" *ngIf="!loading">
+      <i class="fa fa-4x fa-briefcase"></i>
+      <p>Service not found matching that criteria.</p>
+    </ion-card>
+  </div>
+</ion-content>

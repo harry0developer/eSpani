@@ -1,0 +1,38 @@
+page-places{
+
+    ion-item.item {
+        color: $dark !important;
+        ion-label{
+            font-size: 14px !important;
+        }
+        .input-wrapper {
+            border-bottom: 1px solid $light-grey;
+        }
+        .item-inner {
+            margin-left: 4px !important;
+        }
+        ion-icon {
+            color: $primary !important;
+        }
+    }
+ 
+    .no-match .input-wrapper {
+        text-align: center;
+        margin-top: 20%;
+        p {
+            font-size: 14px;
+        }
+        i {
+            font-size: 2.4em;
+            color: $primary;
+            margin: 20px;
+        }
+        .item-block:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .searchbar-ios .searchbar-clear-icon {
+        top: -10px;
+    }
+}

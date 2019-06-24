@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Service Details
+    </ion-title>
+    <ion-buttons *ngIf="service" end>
+      <button ion-button icon-left (click)="presentShareJobActionSheet(service)">
+        <ion-icon name="share-alt"></ion-icon>Share
+      </button>
+    </ion-buttons>
+    <ion-buttons *ngIf="service" end>
+      <button ion-button icon-left (click)="manageJob(service)">
+        <!-- <ion-icon name="create"></ion-icon> -->
+        <i class="fa fa-2x fa-ellipsis-h"></i>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="banner" *ngIf="service">
+    <div class="top_img">
+      <img src="assets/imgs/categories/{{getServiceIcon(service)}}.svg" class="animated zoomIn">
+    </div>
+    <h2 class="animated slideInLeft">{{service.title}}</h2>
+    <p class="animated slideInRight">Posted {{getDateFromNow(service.date)}}</p>
+    <!-- <ion-grid class="user-info">
+      <ion-row>
+        <ion-col col-4 class="animated slideInDown" (tap)="viewViewedUsers()">
+          <h2>{{ viewedUsers.length || 0 }}</h2>
+          <p>Viewed</p>
+        </ion-col>
+        <ion-col col-4 class="animated slideInDown" (tap)="viewAppliedUsers()">
+          <h2>{{ appliedUsers.length || 0 }}</h2>
+          <p>Applied</p>
+        </ion-col>
+        <ion-col col-4 class="animated slideInDown" (tap)="viewSharedUsers()">
+          <h2>{{ sharedUsers.length || 0 }}</h2>
+          <p>Shared</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+  </div>
+
+  <ion-list *ngIf="service" >
+    <div class="job-summary">
+      <ion-card class="center">
+        <ion-item text-wrap>
+          <i class="animated slideInLeft fa fa-briefcase icon" item-start></i>
+          <h2 class="animated slideInDown">Description</h2>
+          <p class="animated slideInUp">{{ service.description }}</p>
+        </ion-item>
+      </ion-card>
+
+      <ion-card class="center" [hidden]="!service.location.address">
+        <ion-item text-wrap>
+          <i class="animated slideInLeft fa fa-map-marker icon" item-start></i>
+          <h2 class="animated slideInDown">Address</h2>
+          <p class="animated slideInUp">{{ service.location.address }}</p>
+        </ion-item>
+      </ion-card>
+
+      <ion-card class="center" *ngIf="service.services">
+        <ion-item text-wrap>
+          <i class="animated slideInLeft fa fa-award icon" item-start></i>
+          <h2 class="animated slideInDown">Services provided</h2>
+          <ion-badge color="dark" class="animated slideInUp" *ngFor="let s of service.services">{{s}}</ion-badge>
+        </ion-item>
+      </ion-card>
+
+      <ion-card class="center" *ngIf="service.postedBy && service.postedBy.firstname">
+        
+        <ion-item text-wrap>
+          <h2 class="animated slideInDown">{{ service.postedBy.firstname }} {{service.postedBy.lastname}} </h2>
+          <p class="animated slideInUp">
+            <span [hidden]="!service.postedBy.email">
+              <i class="animated slideInLeft fa fa-envelope icon" item-start></i>
+              {{ service.postedBy.email}} 
+            </span>
+            <br>
+            <span [hidden]="!service.postedBy.phone">
+              <i class="animated slideInLeft fa fa-phone icon" item-start></i>
+              {{ service.postedBy.phone}} 
+            </span>
+          </p>
+        </ion-item>
+      </ion-card>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <button ion-button primary  block (click)="requestService(service)">Request service</button>
+</ion-footer>

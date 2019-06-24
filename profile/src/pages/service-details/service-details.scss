@@ -1,0 +1,82 @@
+page-service-details {
+    ion-badge.badge{
+        background-color: $primary;
+        font-weight: 1em;
+        padding: 8px;
+        margin: 2px;
+    }
+
+    .banner{
+        text-align: center;
+        background-color: $primary;
+        padding: 10px 0 40px 0;
+        .top_img {
+            width: 100px;
+            height: 100px;
+            border: 2px solid $secondary;
+            border-radius: 100%;
+            margin: 20px auto;
+            padding: 24px;
+        }
+        h2 ,p {
+            color: $white;
+            margin: 0;
+        }
+        h2{
+            margin: 10px 0;
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+        .user-info {
+            // border-top: 1px solid $secondary;
+            box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.2);
+            width: 96%;
+            border-radius: 4px;
+            background: $white;
+            position: relative;
+            z-index: 100;
+            top: 30px;
+            border: 2px solid $primary;
+            p {
+                font-size: 1em;
+                margin: 0;
+            }
+            p, h2 {
+                color: $primary;
+            }
+        }
+
+       
+
+    }
+
+    .scroll-content {
+        background: $light-grey;
+    }
+
+    .center {
+        margin: auto;
+        padding: 10px;
+    }
+
+    .card {
+        min-height: 90px;
+        .icon {
+            color: $primary;
+            font-size: 1.2em;
+            padding: 0 4px;
+        }
+        .label {
+            h2 {
+                margin-bottom: 4px;
+            }
+            p {
+                font-size: .9em;
+            }
+        } 
+    }
+    
+    ion-grid {
+        padding: 0 0 5px 0 !important;
+    }
+}

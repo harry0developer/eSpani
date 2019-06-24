@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Categories</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismissModal()">
+        Cancel
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar [formControl]="searchControl" (ionChange)="onSearchInput()"></ion-searchbar>
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+  <ion-item *ngFor="let service of categories" (click)="selectCategory(service)">
+    <ion-avatar item-start>
+      <img src="assets/imgs/categories/{{getServiceIcon(service)}}.svg" class="category-icon">
+    </ion-avatar>
+    {{service.category}}
+  </ion-item>
+</ion-content>
