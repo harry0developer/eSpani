@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar color="dark"> 
+      <button ion-button menuToggle *ngIf="!page">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="profile && profile.userType === 'buyer'">Rated</ion-title>
+      <ion-title *ngIf="profile && profile.userType === 'seller'">Raters</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list class="users">
+      <div *ngFor="let rater of mappedRaters">
+        <ion-item detail-push (click)="viewRater(rater)">
+          <ion-avatar item-start>
+            <img src="{{rater.avatar}}">
+          </ion-avatar>
+          <h2>{{rater.nickname}}</h2>
+          <p>
+            <i class="fa fa-calendar"></i>
+            {{rater.data?.date}}
+          </p> 
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-content>
+  

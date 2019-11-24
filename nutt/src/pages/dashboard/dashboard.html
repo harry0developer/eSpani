@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title> 
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div id="profile-bg" [ngStyle]="{'background-image': 'url(' + profile?.avatar +')'}"></div>
+  <div id="content" *ngIf="profile">
+    <div id="profile-info">
+      <img id="profile-image" src="{{profile.avatar}}">
+      <h2 class="nickname">{{profile.nickname}} 
+        <ion-badge class="age" item-end>{{getAge(profile.dob)}}</ion-badge>
+      </h2>
+      <rating [float]="true" [(ngModel)]="rating" [readonly]="true"></rating>
+      <div class="tags">
+        <ion-badge primary>{{profile.gender}}</ion-badge>
+        <ion-badge primary>{{profile.race}}</ion-badge>
+        <ion-badge primary>{{profile.body?.type}}</ion-badge>
+        <ion-badge primary>{{profile.body?.height}} {{profile.body?.measure}}</ion-badge>
+      </div>
+    </div>   
+<!-- 
+    <ion-row class="info" *ngIf="isSeller()">
+      <ion-col col-6 (tap)="viewChats()">
+        <h2>{{requesters?.length}}</h2>
+        <p>Chats </p>
+      </ion-col> 
+      <ion-col col-6 (tap)="viewRaters()">
+        <h2>{{raters?.length}}</h2>
+        <p>Raters</p>
+      </ion-col>
+    </ion-row> -->
+  </div>
+
+  <ion-grid *ngIf="profile">
+    <ion-row>
+      <ion-col col-6 *ngIf="requesters">
+        <ion-card (tap)="viewChats()"> 
+          <ion-card-content>
+            <i class="fa fa-comment" item-start></i>
+            <h2>{{requesters?.length}}</h2>
+            <p>Chats </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6 *ngIf="raters">
+        <ion-card (tap)="viewRaters()"> 
+          <ion-card-content>
+            <i class="fa fa-star" item-start></i>
+            <h2>{{raters?.length}}</h2>
+            <p>Raters</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

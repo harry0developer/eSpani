@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar color="dark">
+      <button ion-button menuToggle *ngIf="!page">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Chats</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list class="users">
+      <div *ngFor="let requester of mappedRequesters">
+        <ion-item *ngIf="requester" detail-push (click)="viewChats(requester)">
+          <ion-avatar item-start>
+            <img src="{{requester.avatar}}">
+          </ion-avatar>
+          <h2>{{requester?.nickname}}</h2> 
+          <p>
+            <i class="fa fa-calendar"></i>
+            {{requester.data?.date}}
+          </p> <!-- date of request-->
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-content>
+  

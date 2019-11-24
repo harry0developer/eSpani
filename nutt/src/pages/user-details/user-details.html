@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{user?.nickname}}</ion-title>
+  </ion-navbar>
+</ion-header>
+  
+  <div [ngClass]="{'overlay': dataProvider.openModal}"></div>
+  <ion-content>
+    <div id="profile-bg"></div>
+    <div id="content" *ngIf="user">
+    <div id="profile-info">
+      <img id="profile-image" src="{{user.avatar}}">
+      <h2 class="nickname">{{user.nickname}} 
+        <ion-badge class="age" item-end>{{getAge(user.dob)}}</ion-badge>
+      </h2>
+      <p class="address"> <i class="fa fa-map-marker"></i>{{getDistance(user.location?.geo)}} km away</p>
+      <rating [float]="true" [(ngModel)]="rating" [readonly]="true" *ngIf="!canRateUser(user)" (click)="rateError(user)"></rating>
+      <rating [float]="true" [(ngModel)]="rating" [readonly]="true"  *ngIf="canRateUser(user)" (click)="rateUser(user)"></rating>
+      <div class="tags">
+        <ion-badge primary>{{user.gender}}</ion-badge>
+        <ion-badge primary>{{user.race}}</ion-badge>
+        <ion-badge primary>{{user.body?.type}}</ion-badge>
+        <ion-badge primary>{{user.body?.height}} {{user.body?.measure}}</ion-badge>
+      </div>
+    </div>   
+  
+    <hr>
+    <!-- <ion-row class="info">
+      <ion-col col-6>
+        <h2>{{requesters?.length}}</h2>
+        <p>Chats </p>
+      </ion-col> 
+      <ion-col col-6>
+        <h2>{{raters?.length}}</h2>
+        <p>Raters</p>
+      </ion-col>
+    </ion-row> -->
+ 
+    <ion-row class="images">
+      <ion-col col-4>
+          <img src="{{user.avatar}}">
+      </ion-col>
+      <ion-col col-4>
+          <img src="{{user.avatar}}">
+      </ion-col>
+      <ion-col col-4>
+          <img src="{{user.avatar}}">
+      </ion-col>
+      <ion-col col-4>
+          <img src="{{user.avatar}}">
+      </ion-col>
+      <ion-col col-4>
+          <img src="{{user.avatar}}">
+      </ion-col>
+    </ion-row>    
+  </div>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="chatWithUser(user)">
+      <i class="fa fa-comment"></i>
+    </button>
+  </ion-fab> 
+</ion-content>
+<!-- 
+<ion-footer>
+  <div class="popup-menu" *ngIf="profile">
+    <div class="popup-menu-overlay" [ngClass]="{'in': openMenu}" (click)="togglePopupMenu()"></div>
+    <div class="popup-menu-toggle" (click)="togglePopupMenu()" [ngClass]="{'out': openMenu}"></div>
+    <div class="popup-menu-panel" [ngClass]="{'in': openMenu}">
+      <div class="popup-menu-item" (click)="followUser(user)">
+        <i class="fa fa-user-plus"></i>
+        <span>Follow</span>
+      </div>
+      <div class="popup-menu-item" (click)="likeUser(user)">
+        <i class="fa fa-thumbs-up"></i>
+        <span>Like</span>
+      </div>
+      <div class="popup-menu-item" (click)="chatWithUser(user)">
+        <i class="fa fa-comment"></i>
+        <span>Chat</span>
+      </div> 
+    </div>
+  </div>
+</ion-footer> -->

@@ -1,0 +1,9 @@
+<ion-item class="bubble">
+  <ion-avatar item-start>
+    <img id="profile-image" src="{{chatData.user.avatar}}">
+  </ion-avatar>
+  <div class="message">
+    {{chatData.message?.message}}
+  </div>
+  <span class="date">{{getDate(chatData.message?.date)}}</span>
+</ion-item>

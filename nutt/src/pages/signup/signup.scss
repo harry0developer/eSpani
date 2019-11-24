@@ -1,0 +1,152 @@
+page-signup { 
+    .logo-brand {
+        width: 100px;
+        margin: 20px auto 20px auto;
+    }
+    .top {
+        background-color: white;
+    }
+    .login-form {
+        position: absolute;
+        width: 100%;
+        top: 20%;
+        .item {
+            .item-inner {
+                margin-left: 0;
+            }
+        }
+        ion-icon.email {
+            font-size: 1.2em;
+            padding-top: 3px;
+        }
+        ion-icon.password {
+            font-size: 1.4em;
+            padding-top: 3px;
+        }
+        ion-icon {
+            color: $primary;
+        }
+        ion-card {
+            h2 {
+                font-weight: bold;
+                text-align: center;
+                padding-top: 20px;
+            }
+        }
+        .col {
+            padding: 2px;
+        }
+        .item-input, .item-select, .item-datetime {
+            border: 1px solid $light-grey;
+            color: $light-grey;
+            .label {
+                color: $dark-grey;
+            }
+        } 
+        .item-select, .item-datetime {
+            height: 70px;
+        }
+        .datetime-ios {
+            padding: 0 !important;
+        }
+        .item-datetime {
+            border-radius: 4px; 
+            .datetime-md {
+                padding: 5px 0;
+                height: 30px;
+            }
+        }
+        .termsAndConditions {
+            color: $light-grey;
+            text-align: center;
+            font-size: 10px;
+            padding: 10px;
+        }
+        [icon-start] ion-icon {
+            position: absolute;
+            left: 0;
+            padding: 12px;
+            background-color: white;
+        }
+        ion-item.item-input {
+            margin: 10px 0;
+        }
+        ion-label.label {
+            width: 120px;
+        }
+        .validation {
+            color: $light-grey;
+        }
+    }
+    
+    .social-media-login {
+        position: absolute;
+        width: 100%;
+        bottom: 0; 
+        span {
+            color: $light-grey;
+        }
+        [col-6] {
+            padding: 0 4px !important;
+        }
+        .button-inner {
+            span {
+                font-size: .9em;
+                position: absolute;
+                left: 60px;
+            }
+        }
+        .mail ion-icon{
+            color: $mail;
+        }
+        .facebook ion-icon{
+            color: $facebook;
+            font-size: 1.4em;
+        }
+        .twitter ion-icon{
+            color: $twitter;
+        }
+        .google ion-icon{
+            color: $google;
+        }
+    }
+    
+  
+    .social-media-login {
+        background-color: $primary;
+        height: 80px;
+        .button {
+            background-color: white;
+        }
+    }
+   
+    .bottom {
+        position: absolute;
+        height: 60%;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: 60%;
+        padding: 50px 0;
+        width: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+
+    .bottom:after {
+        width: 100%;
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        transform: skewY(-14deg);
+        background-color: $primary;
+        z-index: 2;
+    }
+
+    ion-footer {
+        background-color: $primary;
+        text-align: center;
+    }
+}

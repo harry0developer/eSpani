@@ -1,0 +1,140 @@
+page-login { 
+    .logo-brand {
+        width: 140px;
+        margin: 40px auto 20px auto ; //TRBL
+    } 
+    .top {
+        background-color: white;
+    }
+
+    .login-form {
+        position: absolute;
+        width: 100%;
+        top: 30%;
+        .item {
+            .item-inner {
+                margin-left: 0;
+            }
+        } 
+        ion-icon.email {
+            font-size: 1.2em;
+            padding-top: 3px;
+        }
+        ion-icon.password {
+            font-size: 1.4em;
+            padding-top: 3px;
+        }
+        ion-icon {
+            color: $primary;
+        }
+
+        ion-card {
+            h2 {
+                font-weight: bold;
+                text-align: center;
+                padding-top: 20px;
+            }
+        }
+
+        .item-input {
+            border: 1px solid $light-grey;
+        }
+        .termsAndConditions {
+            color: $light-grey;
+            text-align: center;
+            font-size: 10px;
+            padding: 10px;
+        }
+            
+        [icon-start] ion-icon {
+            position: absolute;
+            left: 0;
+            padding: 12px;
+            background-color: white;
+        }
+    
+        ion-item.item-input {
+            margin: 10px 0;
+        }
+        
+        ion-label.label {
+            width: 120px;
+        }
+
+        .validation {
+            color: $primary;
+        }
+    
+    }
+    
+    .social-media-login {
+        position: absolute;
+        width: 100%;
+        bottom: 0; 
+        span {
+            color: $light-grey;
+        }
+        [col-6] {
+            padding: 0 4px !important;
+        }
+        .button-inner {
+            span {
+                font-size: .9em;
+                position: absolute;
+                left: 40px !important;
+            }
+        }
+        
+        .facebook ion-icon{
+            color: $facebook;
+            font-size: 1.4em;
+        } 
+        .google ion-icon{
+            color: $google;
+        }
+
+        ion-icon {
+            position: absolute;
+            left: 0;
+            padding-left: 14px;
+        }
+    }
+    
+  
+    .social-media-login {
+        background-color: $primary;
+        height: 80px;
+        .button {
+            background-color: white;
+        }
+    }
+   
+    .bottom {
+        position: absolute;
+        height: 60%;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        padding: 50px 0;
+        width: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+
+    .bottom:after {
+        width: 100%;
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        transform: skewY(-14deg);
+        background-color: $primary;
+        z-index: 2;
+    }
+
+    ion-footer {
+        background-color: $primary;
+        text-align: center;
+    }
+}

@@ -1,0 +1,24 @@
+bubble-secondary {
+    .bubble {
+        ion-avatar {
+            min-height: 70px;
+            position: relative;
+            top: 0px;
+            padding-right: 10px;
+        }
+        ion-label {
+            font-size: 12px;
+        }
+        .message {
+            font-size: 14px;
+            background-color: $light-grey;
+            color: white;
+            padding: 8px;
+            border-radius: 14px 14px 14px 0;
+        }
+    }
+
+    .bubble.item-ios {
+        padding-left: 4px !important;
+    }
+}

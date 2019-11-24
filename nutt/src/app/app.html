@@ -1,0 +1,45 @@
+<ion-menu [content]="content"  persistent="true" >
+  <ion-content class="user-profile">
+    <div *ngIf="profile" class="profile">
+      <img src="{{profile.avatar}}"  alt="profile" class="profile-picture">
+      <h2>{{profile.nickname}}</h2>
+      <p>{{profile.race}} | {{profile.gender}}</p>
+    </div>
+    <ion-list *ngIf="profile" class="menu">
+      <ion-item menuClose ion-item icon-left *ngIf="profile.userType === 'buyer'" (click)="nav.setRoot(pages.usersPage)">
+        <i class="fa fa-heart" item-start></i>
+        Honeys
+      </ion-item>
+      <ion-item menuClose ion-item icon-left *ngIf="profile.userType === 'seller'" (click)="nav.setRoot(pages.dashboardPage)">
+        <i class="fa fa-heart" item-start></i>
+        Dashboard
+      </ion-item>
+      <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages.chatsPage)">
+        <i class="fa fa-comment" item-start></i>
+        Chats
+      </ion-item> 
+      <ion-item menuClose ion-item icon-left *ngIf="profile.userType === 'buyer'" (click)="nav.setRoot(pages.ratersPage)">
+        <i class="fa fa-star" item-start></i>
+        Rated
+      </ion-item> 
+      <ion-item menuClose ion-item icon-left *ngIf="profile.userType === 'seller'" (click)="nav.setRoot(pages.ratersPage)">
+        <i class="fa fa-star" item-start></i>
+        Raters
+      </ion-item> 
+      <ion-item menuClose ion-item icon-left (click)="nav.setRoot(pages.profilePage)">
+        <i class="fa fa-user" item-start></i>
+        Profile
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  
+  <ion-footer>
+    <button ion-button block clear menuClose color="light" (click)="logout()" icon-start>
+      <i class="fa fa-power-off logout" item-start></i>
+      &nbsp; Logout
+    </button>
+  </ion-footer>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

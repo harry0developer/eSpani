@@ -1,0 +1,24 @@
+bubble-primary {
+    .bubble {
+        min-height: 70px !important;
+        ion-label {
+            font-size: 12px;
+            position: absolute;
+            right: 10px;
+        }
+        .message {
+            font-size: 14px;
+            background-color: $secondary;
+            color: white;
+            padding: 8px;
+            border-radius: 14px 14px 0 14px;
+        }
+        .date {
+            float: right;
+        }
+    }
+
+    .bubble.item-ios {
+        padding-left: 8px !important;
+    }
+}

@@ -1,0 +1,49 @@
+.modal-wrapper{
+    position: absolute;
+    height: 65% !important;
+    top: 45% !important;
+    left: 0;
+    right: 0;
+    text-align: center;
+    .content {
+        background-color: white;
+    }
+}
+
+page-rate-user {
+    h2 {
+        font-size: 1.4em;
+        font-weight: bold;
+        padding-top: 10px;
+    } 
+
+    p {
+        font-size: 10px;
+        padding-bottom: 20px;
+    }
+
+    .rating-value {
+        font-size: 1.4em;
+        display: block;
+        width: 60px;
+        height: 60px;
+        padding: 17px 0;
+        border-radius: 100%;
+        margin: 10px auto;
+        text-align: center;
+        color: #ffffff;
+        background: #ee4a6b;
+    }
+
+    .star-icon {
+        font-size: 2em !important;
+    }
+  
+    .star-icon::before {
+        color: $primary !important;
+    } 
+
+    .button {
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>{{user?.nickname}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list> 
+    <ion-item text-wrap no-lines *ngFor="let chat of chatData"> 
+      <bubble-primary *ngIf="sentByMe(chat)" [chatData]="chat"></bubble-primary>
+      <bubble-secondary *ngIf="!sentByMe(chat)" [chatData]="chat"></bubble-secondary>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-item no-lines> 
+    <ion-input type="text" [(ngModel)]="message" placeholder="Type message" clearInput></ion-input>
+    <button ion-button clear item-right primary [disabled]="!message || !message.trim()" (click)="sendMessage()">Send</button>
+  </ion-item> 
+</ion-footer>
