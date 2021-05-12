@@ -22,7 +22,7 @@
     "@angular/http": "5.0.0",
     "@angular/platform-browser": "5.0.0",
     "@angular/platform-browser-dynamic": "5.0.0",
-    "@grpc/grpc-js": "^0.6.9",
+    "@grpc/grpc-js": "^1.1.8",
     "@ionic-native/app-preferences": "^5.15.1",
     "@ionic-native/app-version": "^4.20.0",
     "@ionic-native/camera": "^5.16.0",
