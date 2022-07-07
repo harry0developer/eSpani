@@ -68,7 +68,7 @@
     "grpc": "^1.24.1",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ngx-rating": "0.0.9",
     "node-cli": "^0.1.0",
     "promise-polyfill": "^8.1.3",
